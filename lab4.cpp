@@ -100,13 +100,20 @@ int main()
   	deleteTriangles(triangles);
   	exit(1);
   }
+  i = 0;
 	// For each triangle
+  try
+  {
+  	while(1)
+  	{
+			// Compute normal
+			triangles.at(i++)->findNormalVector();
+			// Compute angles
 
-		// Compute normal
-
-		// Compute angles
-
-		// Print results
+			// Print results
+  	}
+  }
+  catch (...) {}	// Don't really need to do anything, just stop iterating
 
 	// Keep console window visible
 	getchar();

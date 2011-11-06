@@ -12,8 +12,10 @@ class Triangle
 		virtual ~Triangle();
 		void setTriangle(string s[]);
 		void setVertice(int i, double x, double y, double z);
+		void findNormalVector(void);
 	private:
 		Vector3D v[3];
+		Vector3D normal;
 };
 
 #endif

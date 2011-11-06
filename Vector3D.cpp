@@ -74,3 +74,11 @@ void Vector3D::normalize(void)
 	this->z /= len;
 	return;
 }
+
+void Vector3D::set(Vector3D &x)
+{
+	this->x = x.getX();
+	this->y = x.getY();
+	this->z = x.getZ();
+	return;
+}

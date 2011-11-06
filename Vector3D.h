@@ -8,6 +8,7 @@ class Vector3D
 	public:
 		Vector3D(double x = 0.0, double y = 0.0, double z = 0.0);
 		void set(double x, double y, double z);
+		void set(Vector3D &x);
 		void get(double &x, double &y, double &z);
 		double getX(void);
 		double getY(void);

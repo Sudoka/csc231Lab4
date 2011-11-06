@@ -56,3 +56,17 @@ void Triangle::setTriangle(string s[])
 	return;
 }
 
+void Triangle::findNormalVector(void)
+{
+	Vector3D a, b, c;
+	a = this->v[1] - this->v[0];
+	b = this->v[2] - this->v[1];
+	c = a / b;	// Cross product
+	this->normal.set(c);
+	this->normal.normalize();
+	cout << "(" << this->normal.getX() << ", ";
+	cout << this->normal.getY() << ", ";
+	cout << this->normal.getZ() << ")" << endl;
+	return;
+}
+
