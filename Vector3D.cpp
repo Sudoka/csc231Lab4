@@ -1,12 +1,12 @@
 #include "Vector3D.h"
 
-Vector3D::Vector3D(float x, float y, float z)
+Vector3D::Vector3D(double x, double y, double z)
 {
 	this->set(x, y, z);
 	return;
 }
 
-void Vector3D::set(float x, float y, float z)
+void Vector3D::set(double x, double y, double z)
 {
 	this->x = x;
 	this->y = y;
@@ -14,7 +14,7 @@ void Vector3D::set(float x, float y, float z)
 	return;
 }
 
-void Vector3D::get(float &x, float &y, float &z)
+void Vector3D::get(double &x, double &y, double &z)
 {
 	x = this->x;
 	y = this->y;
@@ -22,17 +22,17 @@ void Vector3D::get(float &x, float &y, float &z)
 	return;
 }
 
-float Vector3D::getX(void)
+double Vector3D::getX(void)
 {
 	return this->x;
 }
 
-float Vector3D::getY(void)
+double Vector3D::getY(void)
 {
 	return this->y;
 }
 
-float Vector3D::getZ(void)
+double Vector3D::getZ(void)
 {
 	return this->z;
 }
@@ -51,9 +51,9 @@ Vector3D operator -(Vector3D &a, Vector3D &b)
 								a.getZ() - b.getZ());
 }
 
-float operator *(Vector3D &a, Vector3D &b)
+double operator *(Vector3D &a, Vector3D &b)
 {
-	return (float)( a.getX() * b.getX() +
+	return (double)( a.getX() * b.getX() +
 									a.getY() * b.getY() +
 									a.getZ() * b.getZ());
 }
@@ -63,4 +63,14 @@ Vector3D operator /(Vector3D &a, Vector3D &b)
 	return Vector3D(a.getY() * b.getZ() - a.getZ() * b.getY(),
 								a.getZ() * b.getX() - a.getX() * b.getZ(),
 								a.getX() * b.getY() - a.getY() * b.getX());
+}
+
+void Vector3D::normalize(void)
+{
+	double len;
+	len = sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+	this->x /= len;
+	this->y /= len;
+	this->z /= len;
+	return;
 }

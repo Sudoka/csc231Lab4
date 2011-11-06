@@ -56,36 +56,50 @@ Triangle 5
 
 **********************************************************************/
 
-#include <iostream>
 #include <fstream>
 #include <vector>
-#include <math.h>
 #include <stdlib.h>
+#include "Triangle.h"
 
 using namespace std;
 
+void deleteTriangles(vector<Triangle *> triangles);
+
 int main()
 {
-	string data;
+	string data[3];
+	vector<Triangle *> triangles;
+	Triangle *temp;
+	int i;
+
   // Open file (NOTE: Use \\ to separate folder names in filename)
   fstream in( "triangles.dat", ios::in );
 
 	// Read vertices and construct triangles
+//  triangles.push_back(temp);
   if(in.is_open())
   {
     while(in.good())
     {
-      getline(in, data);
-      cout << data << endl;
+    	cout << "Start triangle..." << endl;
+      temp = new(Triangle);
+    	for(i = 0; i < 3; i++)
+    	{
+    		getline(in, data[i]);
+    		cout << data[i] << endl;
+    	}
+      temp->setTriangle(data);
+      cout << temp << endl;
+      triangles.push_back(temp);
     }
     in.close();
   }
   else
   {
   	cout << "Cannot open file." << endl;
+  	deleteTriangles(triangles);
   	exit(1);
   }
-
 	// For each triangle
 
 		// Compute normal
@@ -96,5 +110,18 @@ int main()
 
 	// Keep console window visible
 	getchar();
+	deleteTriangles(triangles);
 	return 0;
+}
+
+void deleteTriangles(vector<Triangle *> triangles)
+{
+	Triangle *temp;
+	while(!triangles.empty())
+	{
+		temp = triangles.back();
+		triangles.pop_back();
+		delete temp;
+	}
+	return;
 }
