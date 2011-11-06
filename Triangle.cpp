@@ -70,3 +70,16 @@ void Triangle::findNormalVector(void)
 	return;
 }
 
+void Triangle::findAngles(void)
+{
+	// Find the vectors that make up the sides of the triangle and use for
+	// finding the angles of the triangle. Also, need to be sure the vector tails
+	// share the same point.
+	this->angles[0] = findAngle(this->v[2] - this->v[0], this->v[1] - this->v[0]);
+	this->angles[1] = findAngle(this->v[0] - this->v[1], this->v[2] - this->v[1]);
+	this->angles[2] = findAngle(this->v[1] - this->v[2], this->v[0] - this->v[2]);
+	cout << "Angle 2-0: " << this->angles[0] << endl;
+	cout << "Angle 0-1: " << this->angles[1] << endl;
+	cout << "Angle 1-2: " << this->angles[2] << endl;
+	return;
+}

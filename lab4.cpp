@@ -107,9 +107,9 @@ int main()
   	while(1)
   	{
 			// Compute normal
-			triangles.at(i++)->findNormalVector();
+			triangles.at(i)->findNormalVector();
 			// Compute angles
-
+			triangles.at(i++)->findAngles();
 			// Print results
   	}
   }

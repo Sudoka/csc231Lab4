@@ -2,7 +2,10 @@
 #define Vector3D_H_
 
 #include <math.h>
+#include <iostream>
+using namespace std;
 
+#define PI 3.14159265359
 class Vector3D
 {
 	public:
@@ -14,6 +17,7 @@ class Vector3D
 		double getY(void);
 		double getZ(void);
 		void normalize(void);
+		double magnitude(void);
     friend Vector3D operator +(Vector3D &a, Vector3D &b);
     friend Vector3D operator -(Vector3D &a, Vector3D &b);
     friend double operator *(Vector3D &a, Vector3D &b);
@@ -23,5 +27,7 @@ class Vector3D
 		double y;
 		double z;
 };
+
+double findAngle(Vector3D a, Vector3D b);
 
 #endif

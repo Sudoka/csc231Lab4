@@ -13,9 +13,11 @@ class Triangle
 		void setTriangle(string s[]);
 		void setVertice(int i, double x, double y, double z);
 		void findNormalVector(void);
+		void findAngles(void);
 	private:
 		Vector3D v[3];
 		Vector3D normal;
+		double angles[3];
 };
 
 #endif

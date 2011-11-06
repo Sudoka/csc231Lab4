@@ -68,7 +68,7 @@ Vector3D operator /(Vector3D &a, Vector3D &b)
 void Vector3D::normalize(void)
 {
 	double len;
-	len = sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+	len = this->magnitude();
 	this->x /= len;
 	this->y /= len;
 	this->z /= len;
@@ -82,3 +82,16 @@ void Vector3D::set(Vector3D &x)
 	this->z = x.getZ();
 	return;
 }
+
+double Vector3D::magnitude(void)
+{
+	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+}
+
+double findAngle(Vector3D a, Vector3D b)
+{
+	double angle;
+	angle = 180.0 * acos((a * b) / (a.magnitude() * b.magnitude())) / PI;
+	return angle;
+}
+
