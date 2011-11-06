@@ -2,8 +2,6 @@
 #define Vector3D_H_
 
 #include <math.h>
-#include <iostream>
-using namespace std;
 
 #define PI 3.14159265359
 class Vector3D

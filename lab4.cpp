@@ -81,15 +81,12 @@ int main()
   {
     while(in.good())
     {
-    	cout << "Start triangle..." << endl;
       temp = new(Triangle);
     	for(i = 0; i < 3; i++)
     	{
     		getline(in, data[i]);
-    		cout << data[i] << endl;
     	}
       temp->setTriangle(data);
-      cout << temp << endl;
       triangles.push_back(temp);
     }
     in.close();
@@ -109,8 +106,10 @@ int main()
 			// Compute normal
 			triangles.at(i)->findNormalVector();
 			// Compute angles
-			triangles.at(i++)->findAngles();
+			triangles.at(i)->findAngles();
 			// Print results
+			cout << "Triangle " << i << endl;
+			triangles.at(i++)->print();
   	}
   }
   catch (...) {}	// Don't really need to do anything, just stop iterating

@@ -42,9 +42,9 @@ void Triangle::setTriangle(string s[])
 		if(z[eol] < 0x20) z = z.substr(0, eol);	// remove it if new line is present
 
 		// Debugging...
-		cout << "|" << x << "|" << endl;
-		cout << "|" << y << "|" << endl;
-		cout << "|" << z << "|" << endl << endl;
+//		cout << "|" << x << "|" << endl;
+//		cout << "|" << y << "|" << endl;
+//		cout << "|" << z << "|" << endl << endl;
 
 		// Convert strings to double
 		vx = atof(x.c_str());
@@ -64,9 +64,6 @@ void Triangle::findNormalVector(void)
 	c = a / b;	// Cross product
 	this->normal.set(c);
 	this->normal.normalize();
-	cout << "(" << this->normal.getX() << ", ";
-	cout << this->normal.getY() << ", ";
-	cout << this->normal.getZ() << ")" << endl;
 	return;
 }
 
@@ -78,8 +75,27 @@ void Triangle::findAngles(void)
 	this->angles[0] = findAngle(this->v[2] - this->v[0], this->v[1] - this->v[0]);
 	this->angles[1] = findAngle(this->v[0] - this->v[1], this->v[2] - this->v[1]);
 	this->angles[2] = findAngle(this->v[1] - this->v[2], this->v[0] - this->v[2]);
-	cout << "Angle 2-0: " << this->angles[0] << endl;
-	cout << "Angle 0-1: " << this->angles[1] << endl;
-	cout << "Angle 1-2: " << this->angles[2] << endl;
+	return;
+}
+
+void Triangle::print(void)
+{
+	cout << "  Vertices:";
+	for(int i = 0; i < 3; i++)
+	{
+		if(i != 0) cout << ",";
+		cout << " " << this->v[i].getX();
+		cout << " " << this->v[i].getY();
+		cout << " " << this->v[i].getZ();
+	}
+	cout << endl;
+	cout << "  Normal vertex: ";
+	cout << this->normal.getX() << " ";
+	cout << this->normal.getY() << " ";
+	cout << this->normal.getZ() << endl;
+	cout << "  Angles (in degrees): ";
+	cout << this->angles[0] << ", ";
+	cout << this->angles[1] << ", ";
+	cout << this->angles[2] << endl;
 	return;
 }
