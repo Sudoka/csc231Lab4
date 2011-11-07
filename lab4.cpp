@@ -82,10 +82,7 @@ int main()
     while(in.good())
     {
       temp = new(Triangle);
-    	for(i = 0; i < 3; i++)
-    	{
-    		getline(in, data[i]);
-    	}
+    	for(i = 0; i < 3; i++) getline(in, data[i]);
       temp->setTriangle(data);
       triangles.push_back(temp);
     }
@@ -94,7 +91,6 @@ int main()
   else
   {
   	cout << "Cannot open file." << endl;
-  	deleteTriangles(triangles);
   	exit(1);
   }
   i = 0;
